@@ -10,9 +10,8 @@
     </style>
 
     <style name="Theme.Passwd.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_passwd_animated</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_passwd_static</item>
         <item name="windowSplashScreenBackground">@color/ic_passwd_launcher_background</item>
-        <item name="windowSplashScreenAnimationDuration">2000</item>
         <item name="postSplashScreenTheme">@style/Theme.Passwd</item>
     </style>
 
