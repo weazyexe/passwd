@@ -3,8 +3,10 @@
  */
 package dev.weazyexe.passwd.ui.screens.auth
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
@@ -14,5 +16,8 @@ const val AUTH_SCREEN_ROUTE = "auth"
 @Destination(route = AUTH_SCREEN_ROUTE)
 @Composable
 fun AuthScreen() {
-    Text(text = "auth")
+    val viewModel = hiltViewModel<AuthViewModel>()
+    val state by viewModel.uiState.collectAsState()
+
+    AuthBody(login = state.login, password = state.password)
 }

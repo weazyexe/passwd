@@ -3,21 +3,20 @@
  */
 package dev.weazyexe.passwd.ui.common.core
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 /**
  * Base [ViewModel] for all the screens in the app
  */
-abstract class CoreViewModel<S : State, E : Effect>(
-    application: Application
-) : AndroidViewModel(application) {
+abstract class CoreViewModel<S : State, E : Effect>() : ViewModel() {
 
     /**
      * UI state
@@ -27,12 +26,6 @@ abstract class CoreViewModel<S : State, E : Effect>(
         get() = _uiState.asStateFlow()
     protected val state: S
         get() = uiState.value
-
-    /**
-     * Gets application context
-     */
-    protected val context: Context
-        get() = getApplication<Application>().applicationContext
 
     /**
      * Side effects to screen channel
