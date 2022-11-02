@@ -1,3 +1,6 @@
+/**
+ * Copyright © 2022 Timur Zadvornov. All rights reserved.
+ */
 package dev.weazyexe.passwd.ui.screens.auth
 
 import dev.weazyexe.passwd.ui.common.core.Effect
