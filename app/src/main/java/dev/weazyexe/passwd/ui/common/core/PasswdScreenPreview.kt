@@ -4,8 +4,11 @@
 package dev.weazyexe.passwd.ui.common.core
 
 import android.content.res.Configuration
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import dev.weazyexe.passwd.ui.common.theme.PasswdTheme
 
 @Preview(
     name = "Light theme / Mobile",
@@ -32,3 +35,12 @@ annotation class PasswdScreenPreview
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 annotation class PasswdViewPreview
+
+@Composable
+fun PreviewContent(content: @Composable () -> Unit) {
+    PasswdTheme {
+        Surface {
+            content()
+        }
+    }
+}
